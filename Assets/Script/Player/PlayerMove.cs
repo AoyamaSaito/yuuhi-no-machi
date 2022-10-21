@@ -6,14 +6,17 @@ using System;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
-public class CameraPlayerMove : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
-    [SerializeField]
-    private Transform _testPosition;
     [SerializeField]
     private float _speed = 2;
     [SerializeField]
     private Rigidbody _rigidbody;
+    [Header("Test")]
+    [SerializeField]
+    private bool _isMove = true;
+    [SerializeField]
+    private Transform _testPosition;
 
     private Vector3 _currentCameraPosition;
     public Vector3 CurrentCameraPosition => _currentCameraPosition;
@@ -30,11 +33,29 @@ public class CameraPlayerMove : MonoBehaviour
     private Vector3 _dir;
     public void OnMove(InputAction.CallbackContext context)
     {
-        Debug.Log("OnMove");
+        if(_isMove == false) return;
+
         Vector3 value = context.ReadValue<Vector2>();
         _dir = new Vector3(value.x, 0, value.y);
 
         Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
         _dir = cameraForward * _dir.z + Camera.main.transform.right * _dir.x;
     }
+
+    public void MovePause()
+    {
+        if (_rigidbody != null)
+        {
+            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.angularDrag = 0;
+
+            _isMove = false;
+        }
+    }
+
+    public void MoveResume()
+    {
+        _isMove = true;
+    }
+
 }

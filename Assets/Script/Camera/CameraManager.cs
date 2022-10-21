@@ -14,8 +14,8 @@ public class CameraManager
     public CinemachineVirtualCamera VirtualCamera => _currentVirtualCamera;
     public void SetCurrentCamera(CinemachineVirtualCamera vCam) { _currentVirtualCamera = vCam; }
 
-    private CameraPlayerMove _cameraMove;
-    public CameraPlayerMove CameraMove => _cameraMove;
-    public void SetPlayer(CameraPlayerMove cpm) { _cameraMove = cpm; }
+    private PlayerMove _cameraMove;
+    public PlayerMove CameraMove => _cameraMove;
+    public void SetPlayer(PlayerMove cpm) { _cameraMove = cpm; }
 }
 
