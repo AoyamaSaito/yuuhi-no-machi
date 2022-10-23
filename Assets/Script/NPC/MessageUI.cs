@@ -36,9 +36,16 @@ public class MessageUI : MonoBehaviour
     /// テキストを更新する
     /// </summary>
     /// <param name="index"></param>
-    public void MessageTextUpdate(string name, string message)
+    public bool MessageTextUpdate(string name, string message)
     {
-        if (_messageText == null && _nameText == null) return;
+        if (_messageText == null && _nameText == null) return false;
+
+        if(_isFinish == false)
+        {
+            _isFinish = true;
+            StopCoroutine(_currentCor);
+            return false;
+        }
 
         _nameText.text = name;
         _messageText.text = _init;
@@ -52,8 +59,10 @@ public class MessageUI : MonoBehaviour
         }
 
         _currentCor = StartCoroutine(TextCor(message, _waitTime));
+        return true;
     }
 
+    private bool _isFinish = true;
     /// <summary>
     /// 引数の文字列を_waitTimeずつ表示する
     /// </summary>
@@ -61,19 +70,22 @@ public class MessageUI : MonoBehaviour
     /// <returns></returns>
     IEnumerator TextCor(string text, float waitTime)
     {
-        bool isFinish = false;
+        _isFinish = false;
         int index = 0;
         _messageText.text += text[index];
 
-        while (isFinish == false)
+        while (_isFinish == false)
         {
             yield return new WaitForSeconds(waitTime);
             index++;
             if (index >= text.Length)
             {
+                _isFinish = true;
                 yield break;
             }
             _messageText.text += text[index];
         }
+
+        _messageText.text = text;
     }
 }

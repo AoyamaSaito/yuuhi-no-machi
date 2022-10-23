@@ -29,8 +29,13 @@ public class MessageInteract : MonoBehaviour, IInteracted
             return;
         }
 
-        _currentMessage = _messageData._message[_textIndex++];
-        _messageUI.MessageTextUpdate(_currentMessage.NameStr, _currentMessage.MessageStr);
+        _currentMessage = _messageData._message[_textIndex];
+        bool isComplite = _messageUI.MessageTextUpdate(_currentMessage.NameStr, _currentMessage.MessageStr);
+
+        if(isComplite)
+        {
+            _textIndex++;
+        }
     }
 
     public void Exit()
