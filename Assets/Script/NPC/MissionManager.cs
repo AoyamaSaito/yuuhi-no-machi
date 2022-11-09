@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MissionManager
 {
+    #regionÅ@ Singleton
     private static MissionManager _instance;
     public static MissionManager Instance
     {
@@ -16,6 +18,15 @@ public class MissionManager
             return _instance;
         }
     }
+    #endregion
+
+    enum Authority
+    {
+        
+    }
 
     private Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+
+    Authority auth = Enum.Parse<Authority>("Test");
+    
 }

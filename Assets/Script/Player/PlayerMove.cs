@@ -4,6 +4,8 @@ using UnityEngine;
 using Cinemachine;
 using System;
 using UnityEngine.InputSystem;
+using System.Threading;
+using System.Threading.Tasks;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMove : MonoBehaviour
