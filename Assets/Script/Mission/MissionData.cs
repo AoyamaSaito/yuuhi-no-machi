@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mission
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/CreateMissionAsset")]
+public class MissionData : ScriptableObject
 {
     [SerializeField]
-    private string _missionKey = "sagashimono";
+    private MissionId _missionId = MissionId.None;
     [SerializeField]
     private string _missionName = "’T‚µ•¨";
     [SerializeField]

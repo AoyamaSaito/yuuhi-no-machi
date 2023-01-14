@@ -20,13 +20,10 @@ public class MissionManager
     }
     #endregion
 
-    enum Authority
+    private List<Mission> _missions = new List<Mission>();
+
+    public void AddMission(Mission mission)
     {
-        
+        _missions.Add(mission);
     }
-
-    private Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
-
-    Authority auth = Enum.Parse<Authority>("Test");
-    
 }

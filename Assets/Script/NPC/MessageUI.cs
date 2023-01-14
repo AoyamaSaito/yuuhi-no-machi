@@ -38,7 +38,7 @@ public class MessageUI : MonoBehaviour
     /// <param name="index"></param>
     public bool MessageTextUpdate(string name, string message)
     {
-        if (_messageText == null && _nameText == null) return false;
+        if (_messageText == null) return false;
 
         if(_isFinish == false)
         {
@@ -47,7 +47,7 @@ public class MessageUI : MonoBehaviour
             return false;
         }
 
-        _nameText.text = name;
+        if(_nameText != null) _nameText.text = name;
         _messageText.text = _init;
 
         Debug.Log(name);
