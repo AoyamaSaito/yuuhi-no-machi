@@ -11,4 +11,8 @@ public class MissionData : ScriptableObject
     private string _missionName = "’T‚µ•¨";
     [SerializeField]
     private string _missionText = "‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ";
+
+    public MissionId MissionId => _missionId;
+    public string MissionName => _missionName;
+    public string MissionText => _missionText;
 }

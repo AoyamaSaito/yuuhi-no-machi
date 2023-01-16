@@ -1544,8 +1544,9 @@ GameObject:
   - component: {fileID: 1235007187}
   - component: {fileID: 1235007186}
   - component: {fileID: 1235007185}
-  - component: {fileID: 1235007189}
   - component: {fileID: 1235007184}
+  - component: {fileID: 1235007189}
+  - component: {fileID: 1235007190}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1645,6 +1646,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _messageData: {fileID: 11400000, guid: 169788258c4f1fa4888b33df6b5bbaef, type: 2}
   _messageUI: {fileID: 1080204223}
+--- !u!114 &1235007190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235007183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd1e1dd0f61bc240992d69785c30192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _missionData: {fileID: 0}
+  _isStartMission: 0
+  _isClearMission: 0
 --- !u!1 &1235384663
 GameObject:
   m_ObjectHideFlags: 0
