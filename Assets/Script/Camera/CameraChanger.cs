@@ -9,8 +9,10 @@ public class CameraChanger : MonoBehaviour
 {
     [SerializeField]
     private CinemachineVirtualCamera _vCam;
+
+    [Header("Å‰‚É—LŒø‰»‚µ‚Ä‚¨‚­ƒJƒƒ‰")]
     [SerializeField]
-    private bool _isFirst = false;
+    private bool _defaultCamera = false;
 
     private CameraManager _cameraManager;
 
@@ -18,9 +20,9 @@ public class CameraChanger : MonoBehaviour
     {
         _cameraManager = CameraManager.Instance;
 
-        if(_isFirst == true)
+        if(_defaultCamera == true)
         {
-            SetThisCamera();
+            SetCurrentCamera();
         }
     }
 
@@ -28,13 +30,12 @@ public class CameraChanger : MonoBehaviour
     {
         if(_vCam != null)
         {
-            SetThisCamera();
+            SetCurrentCamera();
         }
     }
 
-    private void SetThisCamera()
+    private void SetCurrentCamera()
     {
-        _vCam.MoveToTopOfPrioritySubqueue();
         _cameraManager?.SetCurrentCamera(_vCam);
     }
 }

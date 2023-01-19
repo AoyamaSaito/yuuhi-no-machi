@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// ToDo UniTaskを使ったバージョンに作り直す！
+
 public class MessageInteract : MonoBehaviour, IInteracted
 {
     [SerializeField]
@@ -25,11 +27,13 @@ public class MessageInteract : MonoBehaviour, IInteracted
 
         if(_textIndex >= _messageData._message.Length)
         {
+            Debug.Log("MessageExit");
             Exit();
             return;
         }
 
         _currentMessage = _messageData._message[_textIndex];
+        Debug.Log(_currentMessage.NameStr);
         bool isComplite = _messageUI.MessageTextUpdate(_currentMessage.NameStr, _currentMessage.MessageStr);
 
         if(isComplite)
