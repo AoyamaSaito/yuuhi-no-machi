@@ -328,7 +328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &252467179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -673,19 +673,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3905234002789357454, guid: ded57f3ceb493f340a627535ca83dcc8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9549503
+      value: 0.95515585
       objectReference: {fileID: 0}
     - target: {fileID: 3905234002789357454, guid: ded57f3ceb493f340a627535ca83dcc8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2750022
+      value: 0.28022474
       objectReference: {fileID: 0}
     - target: {fileID: 3905234002789357454, guid: ded57f3ceb493f340a627535ca83dcc8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.10687395
+      value: -0.09146478
       objectReference: {fileID: 0}
     - target: {fileID: 3905234002789357454, guid: ded57f3ceb493f340a627535ca83dcc8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.031965435
+      value: 0.028030436
       objectReference: {fileID: 0}
     - target: {fileID: 3905234002789357455, guid: ded57f3ceb493f340a627535ca83dcc8, type: 3}
       propertyPath: m_Follow
@@ -1658,9 +1658,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd1e1dd0f61bc240992d69785c30192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _missionData: {fileID: 0}
-  _isStartMission: 0
-  _isClearMission: 0
+  _missionData: {fileID: 11400000, guid: f17ce775a34aa1643837f81a3f225e50, type: 2}
+  _isStartMission: 1
+  _isClearMission: 1
 --- !u!1 &1235384663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2359,7 +2359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vCam: {fileID: 1821463065}
-  _isFirst: 0
+  _defaultCamera: 0
 --- !u!65 &1908619669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2782,6 +2782,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 316278502}
     m_Modifications:
+    - target: {fileID: 3905234001014853288, guid: ded57f3ceb493f340a627535ca83dcc8, type: 3}
+      propertyPath: _defaultCamera
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3905234001358124268, guid: ded57f3ceb493f340a627535ca83dcc8, type: 3}
       propertyPath: m_Waypoints.Array.size
       value: 3
@@ -2876,7 +2880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3905234001785632636, guid: ded57f3ceb493f340a627535ca83dcc8, type: 3}
       propertyPath: m_PathPosition
-      value: 0.06699999
+      value: 0.5488603
       objectReference: {fileID: 0}
     - target: {fileID: 3905234001785632636, guid: ded57f3ceb493f340a627535ca83dcc8, type: 3}
       propertyPath: m_AutoDolly.m_SearchResolution

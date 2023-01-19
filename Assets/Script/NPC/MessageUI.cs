@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// ToDo UniTaskを使ったバージョンに作り直す！
+
 public class MessageUI : MonoBehaviour
 {
     [Header("Message")]
@@ -49,9 +52,6 @@ public class MessageUI : MonoBehaviour
 
         if(_nameText != null) _nameText.text = name;
         _messageText.text = _init;
-
-        Debug.Log(name);
-        Debug.Log(message);
 
         if (_currentCor != null)
         {

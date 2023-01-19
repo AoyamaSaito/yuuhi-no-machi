@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : MonoBehaviour, IPause
 {
     [SerializeField]
     private float _speed = 2;
@@ -33,6 +33,11 @@ public class PlayerMove : MonoBehaviour
     }
 
     private Vector3 _dir;
+    /// <summary>
+    /// プレイヤーの移動を行うクラス
+    /// InputSystemから呼ぶ
+    /// </summary>
+    /// <param name="context"></param>
     public void OnMove(InputAction.CallbackContext context)
     {
         if(_isMove == false) return;
@@ -44,7 +49,7 @@ public class PlayerMove : MonoBehaviour
         _dir = cameraForward * _dir.z + Camera.main.transform.right * _dir.x;
     }
 
-    public void MovePause()
+    public void Pause()
     {
         if (_rigidbody != null)
         {
@@ -55,7 +60,7 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    public void MoveResume()
+    public void Resume()
     {
         _isMove = true;
     }

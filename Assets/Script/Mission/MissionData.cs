@@ -8,11 +8,11 @@ public class MissionData : ScriptableObject
     [SerializeField]
     private MissionId _missionId = MissionId.None;
     [SerializeField]
-    private string _missionName = "’T‚µ•¨";
+    private string _title = "’T‚µ•¨";
     [SerializeField]
-    private string _missionText = "‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ";
+    private string _information = "‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ‚ ";
 
     public MissionId MissionId => _missionId;
-    public string MissionName => _missionName;
-    public string MissionText => _missionText;
+    public string Title => _title;
+    public string Information => _information;
 }

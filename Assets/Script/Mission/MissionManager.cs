@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,13 +20,13 @@ public class MissionManager
 
     private List<MissionData> _missionDatas = new List<MissionData>();
 
-    public void AddMission(MissionData missionData)
+    public void StartMission(MissionData missionData)
     {
         _missionDatas.Add(missionData);
     }
 
-    public void ClearMission()
+    public void ClearMission(MissionData missionData)
     {
-
+        _missionDatas.Remove(missionData);
     }
 }

@@ -5,13 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteract : MonoBehaviour
 {
-    [SerializeField, Tooltip("インタラクト可能かどうかのフラグ")]
-    private bool isInteract = false;
-
     private IInteracted _interacted;
 
     /// <summary>
-    /// InputSystemで呼び出す、Aボタンでインタラクトを行う関数
+    /// InputSystemで呼び出す
+    /// Aボタンでインタラクトを行う関数
     /// </summary>
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -21,12 +19,16 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// コライダーに触れると、IInteractedを_interactedに入れる
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out IInteracted interacted))
         {
             Debug.Log("Enter");
-            Debug.Log(_interacted);
+            Debug.Log(interacted);
             _interacted = interacted;
         }
     }
