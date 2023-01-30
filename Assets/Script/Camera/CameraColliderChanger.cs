@@ -5,7 +5,7 @@ using Cinemachine;
 using System;
 
 [RequireComponent(typeof(BoxCollider))]
-public class CameraChanger : MonoBehaviour
+public class CameraColliderChanger : MonoBehaviour, ICameraChanger
 {
     [SerializeField]
     private CinemachineVirtualCamera _vCam;
@@ -16,13 +16,15 @@ public class CameraChanger : MonoBehaviour
 
     private CameraManager _cameraManager;
 
+    public CinemachineVirtualCamera VCam => _vCam; 
+
     private void Start()
     {
         _cameraManager = CameraManager.Instance;
 
         if(_defaultCamera == true)
         {
-            SetCurrentCamera();
+            CameraChange();
         }
     }
 
@@ -30,12 +32,12 @@ public class CameraChanger : MonoBehaviour
     {
         if(_vCam != null)
         {
-            SetCurrentCamera();
+            CameraChange();
         }
     }
 
-    private void SetCurrentCamera()
+    public void CameraChange()
     {
-        _cameraManager?.SetCurrentCamera(_vCam);
+        _cameraManager.SetCurrentCamera(this);
     }
 }
