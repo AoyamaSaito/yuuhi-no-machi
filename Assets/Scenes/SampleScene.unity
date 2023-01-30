@@ -1553,7 +1553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1235007184
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2880,7 +2880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3905234001785632636, guid: ded57f3ceb493f340a627535ca83dcc8, type: 3}
       propertyPath: m_PathPosition
-      value: 0.5488603
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3905234001785632636, guid: ded57f3ceb493f340a627535ca83dcc8, type: 3}
       propertyPath: m_AutoDolly.m_SearchResolution
@@ -2977,6 +2977,7 @@ GameObject:
   - component: {fileID: 5582311395531315792}
   - component: {fileID: 5582311395531315794}
   - component: {fileID: 5582311395531315793}
+  - component: {fileID: 5582311395531315795}
   m_Layer: 0
   m_Name: ChMD_kato_01
   m_TagString: Untagged
@@ -2991,16 +2992,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5058538607102525674}
-  m_LocalRotation: {x: 0.1167728, y: 0.71805185, z: 0.10406389, w: -0.6781862}
-  m_LocalPosition: {x: -51.058388, y: -323.05014, z: -33.215202}
-  m_LocalScale: {x: 1.0000004, y: 1, z: 1.0000002}
+  m_LocalRotation: {x: -0, y: -0.5568485, z: -0, w: 0.8306141}
+  m_LocalPosition: {x: -7.81, y: 0.02, z: -0.07}
+  m_LocalScale: {x: 1.4331, y: 1.4331, z: 1.4331}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1759019354704317206}
   - {fileID: 4813067111120199634}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -67.676, z: 0}
 --- !u!114 &5582311395531315793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3029,6 +3030,21 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.38, z: 0}
+--- !u!114 &5582311395531315795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5058538607102525674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd1e1dd0f61bc240992d69785c30192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _missionData: {fileID: 11400000, guid: f17ce775a34aa1643837f81a3f225e50, type: 2}
+  _isStartMission: 1
+  _isClearMission: 1
 --- !u!33 &5781191236276085122
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3155,6 +3171,7 @@ GameObject:
   - component: {fileID: 4813067111120199634}
   - component: {fileID: 5781191236276085122}
   - component: {fileID: 8902700606984868542}
+  - component: {fileID: 9117178234120589785}
   m_Layer: 0
   m_Name: pCylinder1
   m_TagString: Untagged
@@ -3162,3 +3179,16 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!135 &9117178234120589785
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117178234120589784}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.31650695
+  m_Center: {x: -0.000000029802322, y: 0.4227492, z: 0.000000029802322}

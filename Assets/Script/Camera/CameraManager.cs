@@ -16,10 +16,10 @@ public class CameraManager
     private PlayerMove _cameraMove;
     public PlayerMove CameraMove => _cameraMove;
 
-    public void SetCurrentCamera(CinemachineVirtualCamera vCam)
+    public void SetCurrentCamera<T>(T cameraChanger) where T : ICameraChanger
     {
-        vCam.MoveToTopOfPrioritySubqueue();
-        _currentVirtualCamera = vCam;
+        cameraChanger.VCam.MoveToTopOfPrioritySubqueue();
+        _currentVirtualCamera = cameraChanger.VCam;
     }
 
     public void SetPlayer(PlayerMove cpm) { _cameraMove = cpm; }
