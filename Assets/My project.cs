@@ -44,6 +44,15 @@ public partial class @Myproject : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CameraXY"",
+                    ""type"": ""Value"",
+                    ""id"": ""2646a9c8-f609-465f-9e41-5a1ba2c1efc9"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -220,6 +229,17 @@ public partial class @Myproject : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Intaract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2806a200-1a08-474e-b148-b2ff53abc8d6"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""CameraXY"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -809,6 +829,7 @@ public partial class @Myproject : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Intaract = m_Player.FindAction("Intaract", throwIfNotFound: true);
+        m_Player_CameraXY = m_Player.FindAction("CameraXY", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -882,12 +903,14 @@ public partial class @Myproject : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Intaract;
+    private readonly InputAction m_Player_CameraXY;
     public struct PlayerActions
     {
         private @Myproject m_Wrapper;
         public PlayerActions(@Myproject wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Intaract => m_Wrapper.m_Player_Intaract;
+        public InputAction @CameraXY => m_Wrapper.m_Player_CameraXY;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -903,6 +926,9 @@ public partial class @Myproject : IInputActionCollection2, IDisposable
                 @Intaract.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnIntaract;
                 @Intaract.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnIntaract;
                 @Intaract.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnIntaract;
+                @CameraXY.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraXY;
+                @CameraXY.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraXY;
+                @CameraXY.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraXY;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -913,6 +939,9 @@ public partial class @Myproject : IInputActionCollection2, IDisposable
                 @Intaract.started += instance.OnIntaract;
                 @Intaract.performed += instance.OnIntaract;
                 @Intaract.canceled += instance.OnIntaract;
+                @CameraXY.started += instance.OnCameraXY;
+                @CameraXY.performed += instance.OnCameraXY;
+                @CameraXY.canceled += instance.OnCameraXY;
             }
         }
     }
@@ -1071,6 +1100,7 @@ public partial class @Myproject : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnIntaract(InputAction.CallbackContext context);
+        void OnCameraXY(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

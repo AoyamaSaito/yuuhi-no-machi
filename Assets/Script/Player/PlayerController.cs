@@ -7,4 +7,11 @@ public class PlayerController : MonoBehaviour
     private PlayerMove _playerMove;
     [SerializeField]
     private PlayerInteract _playerInteract;
+    [SerializeField]
+    private PlayerView _playerView;
+
+    private void Update()
+    {
+        _playerView.MoveAnimationSwitch(_playerMove.Rigidbody.velocity.magnitude);
+    }
 }

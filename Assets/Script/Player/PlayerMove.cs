@@ -24,6 +24,8 @@ public class PlayerMove : MonoBehaviour, IPause
     public Vector3 CurrentCameraPosition => _currentCameraPosition;
     public void SetCameraPosition(Vector3 pos) { _currentCameraPosition = pos; }
 
+    public Rigidbody Rigidbody => _rigidbody;
+
     private void Update()
     {
         if (_rigidbody != null)
@@ -47,6 +49,8 @@ public class PlayerMove : MonoBehaviour, IPause
 
         Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
         _dir = cameraForward * _dir.z + Camera.main.transform.right * _dir.x;
+
+        transform.LookAt(transform.position + _dir);
     }
 
     public void Pause()
